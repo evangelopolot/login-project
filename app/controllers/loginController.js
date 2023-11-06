@@ -1,3 +1,5 @@
+const fs = require('fs');
+const jsonData = require('/Users/evangelopolot/Documents/Projects/login-project/app/data/data.json');
 
 exports.greet = (req, res) => {
     res.status(201).json({
@@ -22,7 +24,7 @@ exports.login = (req, res) => {
         password: req.body.password,
     };
     jsonData.data.push(newData);
-    fs.writeFile('./data/data.json', JSON.stringify(jsonData), (err) => {
+    fs.writeFile('/Users/evangelopolot/Documents/Projects/login-project/app/data/data.json', JSON.stringify(jsonData), (err) => {
         if (err) {
             return console.log(err);
         }

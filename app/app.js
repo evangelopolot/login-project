@@ -8,12 +8,13 @@ const app = express();
 // Middleware
 app.use(morgan('dev'));
 app.use(express.json());
-const jsonData = require('./data/data.json');
 
 app.use(bodyParser.urlencoded());
-app.use(express.static('./app/public'));
+app.use(express.static('/Users/evangelopolot/Documents/Projects/login-project/app/public'));
 
 //Routes
 app.get('/', loginRoute);
+app.post('/api/data', loginRoute);
+
 
 module.exports = app;
