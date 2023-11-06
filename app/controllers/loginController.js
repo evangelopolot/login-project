@@ -1,5 +1,9 @@
 const fs = require('fs');
-const jsonData = require('/Users/evangelopolot/Documents/Projects/login-project/app/data/data.json');
+// const jsonData = require('/Users/evangelopolot/Documents/Projects/login-project/app/data/data.json');
+console.log("This is where you are: ", __dirname)
+// console.log("This is where this is: ",``)
+const jsonData = require(`${__dirname}../../data/data.json`);
+
 
 exports.greet = (req, res) => {
     res.status(201).json({
@@ -7,13 +11,10 @@ exports.greet = (req, res) => {
     });
 }
 
-exports.homePage = (req, res) => {
-    console.log("Homepage hit")
-    res.sendFile('/Users/evangelopolot/Documents/Projects/login-project/app/public/signIn.html');
-}
-
 exports.signIn = (req, res) => {
+    
     res.sendFile('/Users/evangelopolot/Documents/Projects/login-project/app/public/signIn.html');
+    console.log(`${__dirname}../../public/signIn.html`);
 }
 
 exports.login = (req, res) => {

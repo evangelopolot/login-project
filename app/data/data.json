@@ -2,6 +2,7 @@
   "data": [
     { "email": "evangel@gmail.com", "password": "sdsdsd" },
     { "email": "sdd@gm.com", "password": "sdsdsdsjsjs" },
-    { "email": "aaa@aaa", "password": "aaa" }
+    { "email": "aaa@aaa", "password": "aaa" } 
+    
   ]
 }
