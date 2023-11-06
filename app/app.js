@@ -11,7 +11,7 @@ app.use(express.json());
 const jsonData = require('./data/data.json');
 
 app.use(bodyParser.urlencoded());
-app.use(express.static('./public'));
+app.use(express.static('./app/public'));
 
 //Routes
 app.get('/', loginRoute);

@@ -6,6 +6,7 @@ exports.greet = (req, res) => {
 }
 
 exports.homePage = (req, res) => {
+    console.log("Homepage hit")
     res.sendFile('/Users/evangelopolot/Documents/Projects/login-project/app/public/index.html');
 }
 
