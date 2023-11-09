@@ -1,19 +1,9 @@
 const fs = require('fs');
-const jsonData = require('/Users/evangelopolot/Documents/Projects/login-project/app/data/data.json');
-
-exports.greet = (req, res) => {
-    res.status(201).json({
-        'name': 'Evangel'
-    });
-}
-
-exports.homePage = (req, res) => {
-    console.log("Homepage hit")
-    res.sendFile('/Users/evangelopolot/Documents/Projects/login-project/app/public/signIn.html');
-}
+const path = require("path");
+const jsonData = require('../data/data.json');
 
 exports.signIn = (req, res) => {
-    res.sendFile('/Users/evangelopolot/Documents/Projects/login-project/app/public/signIn.html');
+    res.sendFile(path.join(__dirname, "../", "public", "signIn.html"));
 }
 
 exports.login = (req, res) => {
@@ -24,7 +14,7 @@ exports.login = (req, res) => {
         password: req.body.password,
     };
     jsonData.data.push(newData);
-    fs.writeFile('/Users/evangelopolot/Documents/Projects/login-project/app/data/data.json', JSON.stringify(jsonData), (err) => {
+    fs.writeFile(path.join(__dirname, "../", "data", "data.json"), JSON.stringify(jsonData), (err) => {
         if (err) {
             return console.log(err);
         }
