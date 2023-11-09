@@ -1,5 +1,8 @@
 const fs = require('fs');
-const jsonData = require("/Users/evangelopolot/Documents/Projects/login-project/app/data/data.json");
+// const jsonData = require('/Users/evangelopolot/Documents/Projects/login-project/app/data/data.json');
+console.log("This is where you are: ", __dirname)
+// console.log("This is where this is: ",``)
+const jsonData = require(`${__dirname}../../data/data.json`);
 
 
 exports.greet = (req, res) => {
@@ -9,8 +12,9 @@ exports.greet = (req, res) => {
 }
 
 exports.signIn = (req, res) => {
-    // res.sendFile('/Users/evangelopolot/Documents/Projects/login-project/app/public/signIn.html');
-    res.sendFile(express.static("/Users/evangelopolot/Documents/Projects/login-project/app/public/signIn.html"))
+    
+    res.sendFile('/Users/evangelopolot/Documents/Projects/login-project/app/public/signIn.html');
+    console.log(`${__dirname}../../public/signIn.html`);
 }
 
 exports.login = (req, res) => {
@@ -21,7 +25,7 @@ exports.login = (req, res) => {
         password: req.body.password,
     };
     jsonData.data.push(newData);
-    fs.writeFile('/Users/evangelopolot/Documents/Projects/login-project/app/data/data.json', JSON.stringify(jsonData), (err) => {
+    fs.writeFile(path.join(__dirname, "../", "data", "data.json"), JSON.stringify(jsonData), (err) => {
         if (err) {
             return console.log(err);
         }
