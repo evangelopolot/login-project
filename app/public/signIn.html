@@ -15,17 +15,20 @@
             <div class="login-left">
 
             </div>
+
             <div class="login-right">
-                <h1 class="title">Sign In Form</h1>
+                <div class="form">
+                    <h1 class="title">Sign In Form</h1>
 
-                <form action="/api/data" method="post">
-                    <input class="input-field" placeholder="Email Address" type="email" name="email" id="" required>
-                    <input class="input-field" placeholder="Password" type="password" name="password" id="" required>
-                    <button type="submit">Submit</button>
-                </form>
-
-                <div class="bottom-form-text">Don't have an account yet? </div>
-                <p class="new"></p>
+                    <form class= "login-form" action="/api/data" method="post">
+                        <input class="input-field" placeholder="Email Address" type="email" name="email" id="" required>
+                        <input class="input-field" placeholder="Password" type="password" name="password" id="" required>
+                        <button class="btn-submit" type="submit">Submit</button>
+                    </form>
+    
+                    <div class="bottom-form-text">Don't have an account yet? <span> <a href="">Click Here</a></span></div>
+                    <p class="new"></p>
+                </div>
 
             </div>
         </div>
