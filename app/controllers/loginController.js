@@ -1,8 +1,9 @@
 const fs = require('fs');
-const jsonData = require('/Users/evangelopolot/Documents/Projects/login-project/app/data/data.json');
+const path = require("path");
+const jsonData = require('../data/data.json');
 
 exports.signIn = (req, res) => {
-    res.sendFile('/Users/evangelopolot/Documents/Projects/login-project/app/public/signIn.html');
+    res.sendFile(path.join(__dirname, "../", "public", "signIn.html"));
 }
 
 exports.login = (req, res) => {
