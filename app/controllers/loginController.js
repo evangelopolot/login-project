@@ -1,8 +1,5 @@
 const fs = require('fs');
-// const jsonData = require('/Users/evangelopolot/Documents/Projects/login-project/app/data/data.json');
-console.log("This is where you are: ", __dirname)
-// console.log("This is where this is: ",``)
-const jsonData = require(`${__dirname}../../data/data.json`);
+const jsonData = require("/Users/evangelopolot/Documents/Projects/login-project/app/data/data.json");
 
 
 exports.greet = (req, res) => {
@@ -12,9 +9,8 @@ exports.greet = (req, res) => {
 }
 
 exports.signIn = (req, res) => {
-    
-    res.sendFile('/Users/evangelopolot/Documents/Projects/login-project/app/public/signIn.html');
-    console.log(`${__dirname}../../public/signIn.html`);
+    // res.sendFile('/Users/evangelopolot/Documents/Projects/login-project/app/public/signIn.html');
+    res.sendFile(express.static("/Users/evangelopolot/Documents/Projects/login-project/app/public/signIn.html"))
 }
 
 exports.login = (req, res) => {
@@ -30,6 +26,6 @@ exports.login = (req, res) => {
             return console.log(err);
         }
     });
-    console.log(`Data saved ${newData.email, newData.password}`);
+    console.log(`Data saved ${newData.email +" "+ newData.password}`);
     res.status(201).json({ 'message': 'Data recieved successfully' });
 }
