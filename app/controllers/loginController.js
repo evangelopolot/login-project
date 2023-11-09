@@ -1,17 +1,6 @@
 const fs = require('fs');
 const jsonData = require('/Users/evangelopolot/Documents/Projects/login-project/app/data/data.json');
 
-exports.greet = (req, res) => {
-    res.status(201).json({
-        'name': 'Evangel'
-    });
-}
-
-exports.homePage = (req, res) => {
-    console.log("Homepage hit")
-    res.sendFile('/Users/evangelopolot/Documents/Projects/login-project/app/public/signIn.html');
-}
-
 exports.signIn = (req, res) => {
     res.sendFile('/Users/evangelopolot/Documents/Projects/login-project/app/public/signIn.html');
 }
