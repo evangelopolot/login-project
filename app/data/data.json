@@ -1,5 +1,6 @@
 {
   "data": [
+<<<<<<< HEAD
     {
       "email": "evangel@gmail.com",
       "password": "sdsdsd"
@@ -20,5 +21,11 @@
       "email": "zzz@zzz",
       "password": "zzz"
     }
+=======
+    { "email": "evangel@gmail.com", "password": "sdsdsd" },
+    { "email": "sdd@gm.com", "password": "sdsdsdsjsjs" },
+    { "email": "aaa@aaa", "password": "aaa" } 
+    
+>>>>>>> refs/remotes/origin/main
   ]
 }
