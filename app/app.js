@@ -4,7 +4,6 @@ const loginRoute = require('./routes/loginRoute')
 const path = require("path");
 const morgan = require('morgan')
 
-
 const app = express();
 
 // Middleware
@@ -19,6 +18,5 @@ app.use(express.static(path.join(__dirname, "public")));
 //Routes
 app.get('/', loginRoute);
 app.post('/api/data', loginRoute);
-
 
 module.exports = app;

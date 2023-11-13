@@ -1,9 +1,6 @@
 const fs = require('fs');
-// const jsonData = require('/Users/evangelopolot/Documents/Projects/login-project/app/data/data.json');
-console.log("This is where you are: ", __dirname)
-// console.log("This is where this is: ",``)
-const jsonData = require(`${__dirname}../../data/data.json`);
-
+const path = require("path");
+const jsonData = require('../data/data.json');
 
 exports.greet = (req, res) => {
     res.status(201).json({
@@ -13,7 +10,7 @@ exports.greet = (req, res) => {
 
 exports.signIn = (req, res) => {
     
-    res.sendFile('/Users/evangelopolot/Documents/Projects/login-project/app/public/signIn.html');
+    res.sendFile(path.join(__dirname, "../", "public", "signIn.html"));
     console.log(`${__dirname}../../public/signIn.html`);
 }
 
