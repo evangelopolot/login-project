@@ -8,10 +8,12 @@ exports.greet = (req, res) => {
     });
 }
 
+exports.homepage = (req, res) => {
+    res.render('index', {title: 'Home'})
+}
+
 exports.signIn = (req, res) => {
-    
-    res.sendFile(path.join(__dirname, "../", "public", "signIn.html"));
-    console.log(`${__dirname}../../public/signIn.html`);
+    res.render('signIn', {title: 'Sign In'})
 }
 
 exports.login = (req, res) => {
