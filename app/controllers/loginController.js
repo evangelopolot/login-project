@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require("path");
 const jsonData = require('../data/data.json');
 const users = require("../data/users.json");
+const check = require("../checks/check");
 const { log } = require('console');
 
 
@@ -22,17 +23,19 @@ exports.login = (req, res) => {
     console.log(req.body);
 
     let email = JSON.stringify(req.body.email);
-
+    const low = check(req.body.email);
+    console.log(low);
+    let userPassword = JSON.stringify(req.body.password)
     const newData = {
         email: email,
         password: req.body.password,
     };
-    jsonData.data.push(newData);
-    fs.writeFile(path.join(__dirname, "../", "data", "data.json"), JSON.stringify(jsonData), (err) => {
-        if (err) {
-            return console.log(err);
+    console.log(email,userPassword);
+    users.data.forEach((user) => {
+        if (user.body.email == newData.email & user.body.password === newData.password){
+            console.log("We have a match");
         }
-    }); 
+    })
     res.status(201).json(
         { 'message': 'Data recieved successfully' });
 }
@@ -45,9 +48,9 @@ exports.createUser = (req, res) => {
         password: req.body.password,
     };
     console.log(newUserData);
-    users.data.push(newUserData);
+    jsonData.data.push(newUserData);
     
-    fs.writeFile(path.join(__dirname, "../", "data", "users.json"), JSON.stringify(newUserData), (err) => {
+    fs.writeFile(path.join(__dirname, "../", "data", "data.json"), JSON.stringify(newUserData), (err) => {
         if (err) {
             return console.log(err);
         }
