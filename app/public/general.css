@@ -8,15 +8,12 @@ html {
     font-size: 62.5%;
     overflow-x: hidden;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 body {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     font-family: "lato", sans-serif;
     height: 100vh;
     margin: 0;
@@ -27,5 +24,4 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
 }

@@ -22,6 +22,7 @@ app.get('/', loginRoute);
 app.get('/signIn', loginRoute);
 app.get('/signUp', loginRoute);
 app.post('/api/data', loginRoute);
+app.post('/create-user', loginRoute);
 
 
 // Handles the 404 page, middleware should be the last/bottom middleware

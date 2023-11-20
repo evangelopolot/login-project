@@ -5,11 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Project | <%= title%></title>
-    <link rel="stylesheet" href="general.css">
+    <!-- <link rel="stylesheet" href="general.css"> -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <nav>
+        <ul>
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/signIn">Sign In</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </nav>
     <div class="container">
         <div class="login">
             <div class="login-left">
@@ -20,9 +28,9 @@
                 <div class="form">
                     <h1 class="title">Sign Up Form</h1>
 
-                    <form class= "login-form" action="/api/data" method="post">
-                        <input class="input-field" placeholder="First Name" type="text" name="text" id="" required>
-                        <input class="input-field" placeholder="Last Name" type="password" name="password" id="" required>
+                    <form class= "login-form" action="/create-user" method="POST">
+                        <input class="input-field" placeholder="First Name" type="text" name="firstName" id="" required>
+                        <input class="input-field" placeholder="Last Name" type="text" name="lastName" id="" required>
                         <input class="input-field" placeholder="Email Address" type="email" name="email" id="" required>
                         <input class="input-field" placeholder="Password" type="password" name="password" id="" required>
                         <button class="btn-submit" type="submit">Submit</button>

@@ -1,12 +1,9 @@
 const fs = require('fs');
 const path = require("path");
 const jsonData = require('../data/data.json');
+const users = require("../data/users.json");
+const { log } = require('console');
 
-exports.greet = (req, res) => {
-    res.status(201).json({
-        'name': 'Evangel'
-    });
-}
 
 exports.homepage = (req, res) => {
     res.render('index', {title: 'Home'})
@@ -32,6 +29,25 @@ exports.login = (req, res) => {
     };
     jsonData.data.push(newData);
     fs.writeFile(path.join(__dirname, "../", "data", "data.json"), JSON.stringify(jsonData), (err) => {
+        if (err) {
+            return console.log(err);
+        }
+    });
+    res.status(201).json(
+        { 'message': 'Data recieved successfully' });
+}
+
+exports.createUser = (req, res) => {
+    const newUserData = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: req.body.password,
+    };
+    console.log(newUserData);
+    users.data.push(newUserData);
+    
+    fs.writeFile(path.join(__dirname, "../", "data", "users.json"), JSON.stringify(newUserData), (err) => {
         if (err) {
             return console.log(err);
         }
