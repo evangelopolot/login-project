@@ -16,11 +16,18 @@ exports.signIn = (req, res) => {
     res.render('signIn', {title: 'Sign In'})
 }
 
+exports.signUp = (req, res) => {
+    res.render('signUp', {title: 'Sign Up'})
+}
+
 exports.login = (req, res) => {
     console.log('Post has been made.')
     console.log(req.body);
+
+    let email = JSON.stringify(req.body.email);
+
     const newData = {
-        email: req.body.email,
+        email: email,
         password: req.body.password,
     };
     jsonData.data.push(newData);
@@ -29,6 +36,6 @@ exports.login = (req, res) => {
             return console.log(err);
         }
     });
-    console.log(`Data saved ${newData.email +" "+ newData.password}`);
-    res.status(201).json({ 'message': 'Data recieved successfully' });
+    res.status(201).json(
+        { 'message': 'Data recieved successfully' });
 }

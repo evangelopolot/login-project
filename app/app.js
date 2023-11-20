@@ -20,6 +20,7 @@ app.use(express.static(path.join(__dirname, "public")));
 //Routes
 app.get('/', loginRoute);
 app.get('/signIn', loginRoute);
+app.get('/signUp', loginRoute);
 app.post('/api/data', loginRoute);
 
 

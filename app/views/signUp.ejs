@@ -11,14 +11,6 @@
 
 <body>
     <div class="container">
-        <nav>
-            <ul>
-                <li><a href="/" class="active">Home</a></li>
-                <li><a href="/signIn">Sign In</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/about">About</a></li>
-            </ul>
-        </nav>
         <div class="login">
             <div class="login-left">
 
@@ -26,15 +18,17 @@
 
             <div class="login-right">
                 <div class="form">
-                    <h1 class="title">Sign In Form</h1>
+                    <h1 class="title">Sign Up Form</h1>
 
                     <form class= "login-form" action="/api/data" method="post">
+                        <input class="input-field" placeholder="First Name" type="text" name="text" id="" required>
+                        <input class="input-field" placeholder="Last Name" type="password" name="password" id="" required>
                         <input class="input-field" placeholder="Email Address" type="email" name="email" id="" required>
                         <input class="input-field" placeholder="Password" type="password" name="password" id="" required>
                         <button class="btn-submit" type="submit">Submit</button>
                     </form>
     
-                    <div class="bottom-form-text">Don't have an account yet? <span> <a href="/signUp">Click Here</a></span></div>
+                    <div class="bottom-form-text">Already have an account yet? <span> <a href="/signIn">Sign in</a></span></div>
                     <p class="new"></p>
                 </div>
 
