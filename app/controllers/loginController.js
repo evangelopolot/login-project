@@ -32,11 +32,11 @@ exports.login = (req, res) => {
         if (err) {
             return console.log(err);
         }
-    });
+    }); 
     res.status(201).json(
         { 'message': 'Data recieved successfully' });
 }
-
+ 
 exports.createUser = (req, res) => {
     const newUserData = {
         firstName: req.body.firstName,

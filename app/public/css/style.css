@@ -1,9 +1,9 @@
 .container{
     display: flex;
-    background-color: white;
+    background-color: rgb(206, 205, 205);
     width: 1550px;
     height: 900px;
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
 /* Login Form */ 
@@ -71,8 +71,6 @@
     font-size: 18px;
 }
 
-
-
 .btn-container{
     display: flex;
     flex-direction: column;
@@ -108,8 +106,10 @@
 ul {
     list-style-type: none;
     margin: 0;
+    margin-bottom: 10px;
     padding: 0;
     overflow: hidden;
+    border-radius: 5px;
     background-color: #333;
   }
   
