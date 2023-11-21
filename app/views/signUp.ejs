@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Project | <%= title%></title>
+    <!-- <link rel="stylesheet" href="general.css"> -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="/" class=>Home</a></li>
+            <li><a href="/signIn">Sign In</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="login">
+            <div class="login-left">
+
+            </div>
+
+            <div class="login-right">
+                <div class="form">
+                    <h1 class="title">Sign Up Form</h1>
+
+                    <form class= "login-form" action="/create-user" method="POST">
+                        <input class="input-field" placeholder="First Name" type="text" name="firstName" id="" required>
+                        <input class="input-field" placeholder="Last Name" type="text" name="lastName" id="" required>
+                        <input class="input-field" placeholder="Email Address" type="email" name="email" id="" required>
+                        <input class="input-field" placeholder="Password" type="password" name="password" id="" required>
+                        <button class="btn-submit" type="submit">Submit</button>
+                    </form>
+    
+                    <div class="bottom-form-text">Already have an account yet? <span> <a href="/signIn">Sign in</a></span></div>
+                    <p class="new"></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
