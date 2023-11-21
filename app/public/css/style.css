@@ -1,0 +1,139 @@
+.container{
+    display: flex;
+    background-color: rgb(206, 205, 205);
+    width: 1550px;
+    height: 900px;
+    border-radius: 5px;
+}
+
+/* Login Form */ 
+
+.title {
+    font-size: 24px;
+}
+
+.login {
+    display: flex;
+}
+
+.login-left{
+    width:800px;
+    height: 900px;
+    border-radius: 8px;
+    background-color: rgb(121, 109, 90);
+}
+.login-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 900px;
+    width: 750px; 
+    border-radius: 1%;
+}
+
+.form{
+    /* background-color: bisque; */
+    padding: 30px;
+    border-radius: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 400px;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    height: 800px;
+    width: 600px;
+    margin: 40px;
+}
+
+.login-form-title{
+    font-size: 42px;
+    margin: 40px;
+    align-self: center;
+}
+
+.input-field-containers{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field{
+    align-self: center;
+    height: 50px;
+    width: 400px;
+    margin-bottom: 30px;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.btn-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 300px;
+}
+
+.btn-submit {
+    align-self: center;
+    width: 300px;
+    height: 60px;
+    background-color: rgb(149, 111, 78);
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5%;
+}
+
+.bottom-form-text {
+    font-size: 18px;
+}
+
+.separator{
+    height: 3px;
+    width: 700px;
+    background-color: rgb(165, 165, 165);
+}
+
+/* Nav */
+ul {
+    list-style-type: none;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: #333;
+  }
+  
+  li {
+    float: left;
+    border-right:1px solid #bbb;
+  }
+  
+  li:last-child {
+    border-right: none;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: #111;
+  }
+  
+  .active {
+    background-color: #04AA6D;
+  }

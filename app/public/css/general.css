@@ -1,0 +1,27 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+body {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    font-family: "lato", sans-serif;
+    height: 100vh;
+    margin: 0;
+    background-color: #c6c6c6;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
