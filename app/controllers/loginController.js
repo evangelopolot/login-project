@@ -4,7 +4,7 @@ const users = require("../data/data.json");
 const { log } = require("console");
 
 exports.homepage = (req, res) => {
-  res.render("index", { title: "Home" });
+  res.render("application", { title: "Home" });
 };
 
 exports.signIn = (req, res) => {
