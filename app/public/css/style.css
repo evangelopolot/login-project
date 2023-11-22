@@ -16,12 +16,6 @@
     display: flex;
 }
 
-.login-left{
-    width:800px;
-    height: 900px;
-    border-radius: 8px;
-    background-color: rgb(121, 109, 90);
-}
 .login-right{
     display: flex;
     justify-content: center;
