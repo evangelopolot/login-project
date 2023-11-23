@@ -25,7 +25,7 @@ exports.login = (req, res) => {
     password: req.body.password,
   };
   console.log(email, userPassword);
-  console.log("The data", users);
+  console.log("The data of thee user", users);
   users.data.forEach((user) => {
     if (
       (user.email === loginData.email) &
