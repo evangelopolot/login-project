@@ -16,7 +16,7 @@ exports.signUp = (req, res) => {
 };
 
 exports.login = (req, res) => {
-    console.log("hello");
+  console.log("hello");
 
   let email = JSON.stringify(req.body.email);
   let userPassword = JSON.stringify(req.body.password);
@@ -25,7 +25,7 @@ exports.login = (req, res) => {
     password: req.body.password,
   };
   console.log(email, userPassword);
-  console.log("The data", users);
+  console.log("The data from the user:", users);
   users.data.forEach((user) => {
     if (
       (user.email === loginData.email) &
