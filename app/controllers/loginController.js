@@ -16,6 +16,7 @@ exports.signUp = (req, res) => {
 };
 
 exports.login = (req, res) => {
+    console.log("hello");
 
   let email = JSON.stringify(req.body.email);
   let userPassword = JSON.stringify(req.body.password);
