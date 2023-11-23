@@ -16,7 +16,6 @@ exports.signUp = (req, res) => {
 };
 
 exports.login = (req, res) => {
-  const filePath = path.join(__dirname, "../", "data", "data.json");
 
   let email = JSON.stringify(req.body.email);
   let userPassword = JSON.stringify(req.body.password);
