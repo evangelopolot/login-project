@@ -2,7 +2,6 @@ const fs = require('fs');
 const path = require("path");
 const jsonData = require('../data/data.json');
 const users = require("../data/users.json");
-const check = require("../checks/check");
 const { log } = require('console');
 
 
