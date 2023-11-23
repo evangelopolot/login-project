@@ -2,45 +2,37 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Project | <%= title%></title>
-    <!-- <link rel="stylesheet" href="general.css"> -->
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Project | <%= title%>
+    </title>
+    <link rel="stylesheet" href="/css/general.css">
+    <link rel="stylesheet" href="/css/style.css" />
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/signIn" class="active">Sign In</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/about">About</a></li>
-        </ul>
-    </nav>
+
 
     <div class="container">
-        <div class="login">
-            <div class="login-left">
 
-            </div>
+        <div class="form-container">
+            <div class="form">
+                <h1 class="form-title">Login</h1>
 
-            <div class="login-right">
-                <div class="form">
-                    <h1 class="title">Sign In Form</h1>
+                <form class="form-field-container" action="/user/api/data" method="post">
+                    <input class="input-field" placeholder="Email Address" type="email" name="email" id="" required />
+                    <input class="input-field" placeholder="Password" type="password" name="password" id="" required />
+                    <button class="btn-submit" type="submit">Submit</button>
+                </form>
 
-                    <form class= "login-form" action="/api/data" method="post">
-                        <input class="input-field" placeholder="Email Address" type="email" name="email" id="" required>
-                        <input class="input-field" placeholder="Password" type="password" name="password" id="" required>
-                        <button class="btn-submit" type="submit">Submit</button>
-                    </form>
-    
-                    <div class="bottom-form-text">Don't have an account yet? <span> <a href="/signUp">Click Here</a></span></div>
-                    <p class="new"></p>
+                <div class="bottom-form-text">
+                    Not a Member?
+                    <span> <a href="/user/signUp">Click Here</a></span>
                 </div>
 
             </div>
         </div>
+
     </div>
 </body>
 

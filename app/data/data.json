@@ -1,1 +1,22 @@
-{"firstName":"z","lastName":"z","email":"z@z","password":"zz"}
+{
+  "data": [
+    {
+      "firstName": "Evangel",
+      "lastName": "Opolot",
+      "email": "epolos67@gmail.com",
+      "password": "12212"
+    },
+    {
+      "firstName": "bob",
+      "lastName": "lad",
+      "email": "lad@bob",
+      "password": "asdff"
+    },
+    {
+      "firstName": "ss",
+      "lastName": "ss",
+      "email": "ss@ss",
+      "password": "ss"
+    }
+  ]
+}
