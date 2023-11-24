@@ -3,19 +3,13 @@ const bodyParser = require("body-parser");
 const loginRoute = require("./routes/loginRoute");
 const path = require("path");
 const morgan = require("morgan");
-// const { connectToDb, getDb } = require("./db");
+const getDb = require("./db");
 const app = express();
 
 // db connection
 
-// let db;
+// let db = getDb;
 
-// connectToDb((err) => {
-//   //   if (!err) {
-//   //     // server listener is placed here
-//   //   }
-//   db = getDb();
-// });
 
 app.set("view engine", "ejs"); // register view engine
 app.set("views", path.join(__dirname, "/views")); // tell view engine where to look

@@ -1,6 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 const users = require("../data/data.json");
+let nodemailer = require('nodemailer');
+let mongo = require('mongodb');
 const { log } = require("console");
 
 exports.homepage = (req, res) => {
@@ -31,7 +33,7 @@ exports.login = (req, res) => {
       (user.email === loginData.email) &
       (user.password === loginData.password)
     ) {
-      console.log("We have a match");
+      res.render("application", {title: "Application"})
     } else {
       console.log("No match found!");
     }
