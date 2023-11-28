@@ -3,13 +3,7 @@ const bodyParser = require("body-parser");
 const loginRoute = require("./routes/loginRoute");
 const path = require("path");
 const morgan = require("morgan");
-const getDb = require("./db");
 const app = express();
-
-// db connection
-
-// let db = getDb;
-
 
 app.set("view engine", "ejs"); // register view engine
 app.set("views", path.join(__dirname, "/views")); // tell view engine where to look
@@ -17,7 +11,7 @@ app.set("views", path.join(__dirname, "/views")); // tell view engine where to l
 // Middleware
 app.use(morgan("dev"));
 app.use(express.json());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Gives access to all the files in the publlic folder and not just the htmml being send.
 // Does the file matching.
