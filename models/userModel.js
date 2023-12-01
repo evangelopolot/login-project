@@ -20,6 +20,10 @@ const userSchema = new mongoose.Schema({
     minlength: [6, "Password must be at least 6 characters long"],
     // You should hash and salt the password before storing it in the database
   },
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+  },
 });
 
 //document

@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 //Routes
-app.use("/user", loginRoute);
+app.use("/api/v1/users", loginRoute);
 
 // Handles the 404 page, middleware should be the last/bottom middleware
 app.use((req, res) => {

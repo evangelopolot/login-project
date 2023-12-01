@@ -13,28 +13,54 @@ exports.signUp = (req, res) => {
   res.render("signUp", { title: "Sign Up" });
 };
 
-exports.login = (req, res) => {
-  console.log("hello");
+exports.login = async (req, res) => {
+  const { email, password } = req.body;
+  console.log(email, password);
 
-  //   let email = JSON.stringify(req.body.email);
-  //   let userPassword = JSON.stringify(req.body.password);
-  //   const loginData = {
-  //     email: req.body.email,
-  //     password: req.body.password,
-  //   };
-  //   console.log(email, userPassword);
-  //   console.log("The data from the user:", users);
-  //   users.data.forEach((user) => {
-  //     if (
-  //       (user.email === loginData.email) &
-  //       (user.password === loginData.password)
-  //     ) {
-  //       res.render("application", { title: "Application" });
-  //     } else {
-  //       console.log("No match found!");
-  //     }
-  //   });
-  //   res.render("signIn", { title: "Sign In" });
+  try {
+    // Find the user by email
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(401).json({ message: "Invalid email or password" });
+    }
+
+    // Compare the entered password with the hashed password in the database
+    const passwordMatch = user.password === password;
+
+    if (passwordMatch) {
+      // Passwords match, user is authenticated
+      return res.render("application", { title: "Home" });
+    } else {
+      // Passwords do not match
+      return res.status(401).json({ message: "Invalid email or password" });
+    }
+  } catch (err) {
+    console.error("Error:", err.message);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+exports.changePassword = async (req, res) => {
+  const userEmail = req.body.email;
+  try {
+    const user = await User.findOne({ email: userEmail }).exec();
+    console.log("User:", user);
+  } catch (err) {
+    console.error("Error:", err);
+    // Handle the error
+  }
+};
+
+exports.findUser = async (req, res) => {
+  const userEmail = req.body.email;
+  try {
+    const user = await User.findOne({ email: userEmail }).exec();
+    console.log("User:", user);
+  } catch (err) {
+    console.error("Error:", err);
+    // Handle the error
+  }
 };
 
 exports.getAllUsers = async (req, res) => {
