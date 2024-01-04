@@ -112,7 +112,7 @@ body {
     transition: 0s;
     opacity: 0;
     pointer-events: none;
-    z-index: 99;
+    z-index: 999;
 }
 
 .sidebar ul li:hover .tooltip {
