@@ -7,11 +7,10 @@
     <title>Login Project | <%= title%>
     </title>
     <link rel="stylesheet" href="/css/general.css">
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/login/style.css" />
 </head>
 
 <body>
-
 
     <div class="container">
 
@@ -19,7 +18,7 @@
             <div class="form">
                 <h1 class="form-title">Login</h1>
 
-                <form class="form-field-container" action="/user/login" method="post">
+                <form class="form-field-container" action="/api/v1/users/login" method="post">
                     <input class="input-field" placeholder="Email Address" type="email" name="email" id="" required />
                     <input class="input-field" placeholder="Password" type="password" name="password" id="" required />
                     <button class="btn-submit" type="submit">Submit</button>
@@ -27,7 +26,7 @@
 
                 <div class="bottom-form-text">
                     Not a Member?
-                    <span> <a href="/user/signUp">Click Here</a></span>
+                    <span> <a href="/api/v1/users/signUp">Click Here</a></span>
                 </div>
 
             </div>

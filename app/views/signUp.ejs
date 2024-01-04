@@ -7,7 +7,7 @@
     <title>Login Project | <%= title%>
     </title>
     <link rel="stylesheet" href="/css/general.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/login/style.css">
 </head>
 
 <body>
@@ -17,8 +17,7 @@
             <div class="form">
                 <h1 class="form-title">Create an Account</h1>
 
-                <form class="form-field-container" action="/user/create-user" method="POST">
-                    <input class="input-field" type="file" name="file">
+                <form class="form-field-container" action="/api/v1/users/create-user" method="POST">
                     <input class="input-field" placeholder="First Name" type="text" name="firstName" id="" required>
                     <input class="input-field" placeholder="Last Name" type="text" name="lastName" id="" required>
                     <input class="input-field" placeholder="Email Address" type="email" name="email" id="" required>
@@ -26,7 +25,7 @@
                     <button class="btn-submit" type="submit">Submit</button>
                 </form>
 
-                <div class="bottom-form-text">Already have an account yet? <span> <a href="/user/signIn">Sign
+                <div class="bottom-form-text">Already have an account yet? <span> <a href="/api/v1/users/signIn">Sign
                             in</a></span></div>
                 <p class="new"></p>
             </div>

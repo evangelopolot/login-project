@@ -1,8 +1,7 @@
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+dotenv.config({ path: "../../config.env" }); //this must be placed before app
 const app = require("../app");
-
-dotenv.config({ path: "../../config.env" });
 
 const DB =
   "mongodb+srv://zxangel:xSVNfJTqvXX71OBg@cluster0.pgtglah.mongodb.net/?retryWrites=true&w=majority";
@@ -10,8 +9,6 @@ const DB =
 mongoose
   .connect(DB, {
     useNewUrlParser: true,
-    // useCreateIndex: true,
-    // useFindAndModify: false,
   })
   .then(() => {
     console.log("DB connection successful");
