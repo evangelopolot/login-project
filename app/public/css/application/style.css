@@ -1,0 +1,184 @@
+
+/* ************************* */
+/* HEADER SECTION */
+/* ************************* */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 6.6rem;
+    padding: 0 3rem;
+    color: #2A2B2E;
+    background-color: #FFFCF2;
+}
+
+/* ************************* */
+/* NAVIGATION */
+/* ************************* */
+.name-logo {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #2A2B2E;
+    cursor: pointer;
+}
+
+.main-nav-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    font-size: 1.3rem;
+    gap: 2.2rem;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+    display: inline-block;
+    text-decoration: underline;
+    color: inherit;
+    font-weight: 500;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+    color: #797878;
+    text-decoration: underline;
+}
+
+/* ************************* */
+/* HERO SECTION */
+/* ************************* */
+
+.section-hero {
+    margin: 4.6rem auto;
+    margin-top: 4.6rem;
+    margin-bottom: 4.6rem;
+    height: 40vh;
+    max-width: 130rem;
+    background-image:  
+    url(../assets/coolgif.gif);
+    background-size: cover;
+    color: #fff;
+    position: relative;
+    border-radius: 5px;
+}
+
+/* ************************* */
+/* SELECTOIN SECTION */
+/* ************************* */
+.selection-section{
+    text-align: center;
+    margin-bottom: 4.5rem;
+}
+.selection-section-header{
+    font-size: 3.5rem;
+    padding: 4rem 0 4rem 3rem;
+}
+
+.selection-container {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-content: center;
+    gap: 5rem;
+    padding: 2.6rem;
+}
+
+.figure {
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: green;
+}
+
+.figure img {
+
+    max-width: 100%;
+    /* Gets rid of the small gap */
+    display: block;
+    transition: all 0.3s;
+}
+
+.figure img:hover {
+    transform: scale(1.2);
+}
+
+/* ************************* */
+/* ACCORDION SECTION */
+/* ************************* */
+
+.accordion{
+    width: 50%;
+    /* The max width for the accordion no matter what */
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+
+.accordion-item{
+    background-color: #e6e3da;
+    border-radius: 7px;
+    position: relative;
+    box-shadow: 0 0px 2px 1px rgb(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    margin: 16px 0;
+}
+
+.accordion-item-header{
+    padding: 3px 6px 8px 16px;
+    min-height: 10px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.accordion-item-header::after{
+    content: "\002B";
+    font-size: 32px;
+    position: absolute;
+    right: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.accordion-item-header.active::after{
+    transform: rotate(45deg);
+}
+
+.accordion-item-body{
+    display: none;
+    padding: 1.2rem;
+    line-height: 1.3;
+    border-top: 3px solid #cacacb;
+    border-image: linear-gradient(to right, #cacaca, #393939 )1;
+}
+
+.accordion-item-header.active + .accordion-item-body{
+    display: block;
+}
+
+.ordered-list{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-left: 3rem;
+    list-style: symbols("*");
+}
+
+.unordered-list{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-left: 3rem;
+}
+
+.accordion-item p,
+.accordion-item li {
+    font: 1.8rem;
+    font-weight: 500;
+}
+
+.accordion-item p{
+    margin-bottom: 2rem;
+}
