@@ -13,6 +13,7 @@ exports.signUp = (req, res) => {
   res.render("signUp", { title: "Sign Up" });
 };
 
+
 exports.login = async (req, res) => {
   const { email, password } = req.body;
   console.log(email, password);
