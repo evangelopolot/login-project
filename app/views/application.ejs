@@ -3,62 +3,84 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Box Icon Links -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/css/general.css">
-    <link rel="stylesheet" href="/css/application.css">
-    <script src="https://threejs.org/build/three.min.js"></script>
-    <title>Blank application</title>
+    <link rel="stylesheet" href="/css/application/sidebar.css">
+    <link rel="stylesheet" href="/css/application/applications.css">
+    <title>Login</title>
 </head>
 
 <body>
-    <div class="container">
-        <div class="application-container">
-            <div class="application">
-                <div class="sidebar customizable-div" id="customDiv">
-                    <div class="sidebar-heading">
-                        <div class="logo">
-                            <div class="sphere"></div>
-                        </div>
-                        <div class="sidebar-title-container">
-                            <p class="title">Interface</p>
-                        </div>
-                    </div>
-                    <div class="links-container">
-                        <a class="active" href="#home">Home</a>
-                        <a href="#news">Page - 1</a>
-                        <a href="#contact">Page - 2</a>
-                        <a href="#about">Page - 3</a>
+    <div class="sidebar">
+        <div class="logo-content">
+            <div class="logo">
+                <i class='bx bxl-c-plus-plus'></i>
+                <div class="logo-name">Evangel</div>
+            </div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="/homepage">
+                    <i class='bx bx-user'></i>
+                    <span class="links-name">Home</span>
+                </a>
+                <span class="tooltip">Home</span>
+            </li>
+            <li>
+                <a href="page-html.html">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links-name">HTML</span>
+                </a>
+                <span class="tooltip">HTML</span>
+            </li>
+            <li>
+                <a href="page-css.html">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links-name">CSS</span>
+                </a>
+                <span class="tooltip">CSS</span>
+            </li>
+            <li>
+                <a href="javascript-page.html">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links-name">JavaScript</span>
+                </a>
+                <span class="tooltip">JavaScript</span>
+            </li>
+        </ul>
+        <div class="profile-content">
+            <div class="profile">
+                <div class="profile-details">
+                    <img src="assets/kh.gif" alt="">
+                    <div class="name-job">
+                        <div class="name">Evangel Opolot</div>
+                        <div class="job">Web developer</div>
                     </div>
                 </div>
-                <div class="content-container">
-                    <div class="header-container">
-                        <h1 class="header-title">Hello Evangel</h1>
-                        <p class="sub-header-text">This is the home page</p>
-                        <div class="search-bar"></div>
-                        <div class="user-profile">
-                            <div class="img"></div>
-                        </div>
-                    </div>
-                </div>
+                <i class='bx bx-log-out' id="logout"></i>
             </div>
         </div>
     </div>
 
-    <div class="color-container">
-        <label for="colorPicker">Choose a color:</label>
-        <input type="color" id="colorPicker" value="#ff5733" onchange="changeColor(this.value)">
-        <div class="customizable-div" id="customDiv"></div>
-    </div>
+    <main class="background">
+        <div class="home-content">
+            <div class="title heading-primary">HOME</div>
+            <section class="section-hero">
+                <h1 class="heading-primary"></h1>
+            </section>
 
-    <script>
-        function changeColor(color) {
-            document.getElementById('customDiv').style.backgroundColor = color;
-        }
-    </script>
+            <div class="container">
 
+            </div>
+        </div>
+    </main>
+
+
+    <script src="/scripts/script.js"></script>
 </body>
 
 </html>

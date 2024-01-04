@@ -1,16 +1,121 @@
+/*  */
+
 * {
-    padding: 0;
     margin: 0;
-    box-sizing: border-box; /* Corrected value */
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
     font-size: 62.5%;
-    overflow-x: hidden;
 }
 
 body {
-    font-family: "lato", sans-serif;
-    height: 100vh;
-    margin: 0;
+    font-family: 'Segoe UI',
+        sans-serif;
+    color: #2A2B2E;
+    color: #2A2B2E;
+    font-size: 1.6rem;
+    height: 100%;
+}
+
+p {
+    margin-bottom: 2rem;
+}
+
+ul {
+    margin-bottom: 2rem;
+}
+
+/* ************************* */
+/* GENERAL REUSEABLE CODE */
+/* ************************* */
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.heading-primary,
+.heading-secondary,
+.heading-tertiary,
+.sub-heading {
+    color: inherit;
+}
+
+.heading-primary {
+    font-size: 4.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    color: inherit;
+}
+
+.heading-secondary {
+    font-size: 3.2rem;
+    margin-bottom: 2.6rem;
+}
+
+.heading-tertiary {
+    font-size: 3.2rem;
+    margin-bottom: 1rem;
+}
+
+.sub-heading {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-decoration: underline;
+
+}
+
+/* ************************* */
+/* SECTIONS */
+/* ************************* */
+.section {
+    display: flex;
+    flex-direction: column;
+    /* background-color: #e6e3da; */
+    border-radius: 7px;
+    position: relative;
+    padding: 2rem;
+    box-shadow: 0 0px 2px 1px rgb(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+/* .section::after{
+    content: "";
+    background-color: #FFFCF2;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 20%;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    box-shadow: 0 0px 2px 1px rgb(0, 0, 0, 0.1);
+} */
+
+.section .heading-secondary {
+    margin-left: 10px;
+}
+
+.accordion-item-body-content p {
+    font-weight: 400;
+    font-size: 1.8rem;
+}
+
+.image-sm {
+    max-width: 20rem;
+}
+
+.image {
+    max-width: 45rem;
+}
+
+.image-l {
+    max-width: 65rem;
+    height: auto;
+}
+
+.center-text {
+    text-align: center;
 }

@@ -2,7 +2,7 @@ const path = require("path");
 const User = require("../../models/userModel");
 
 exports.homepage = (req, res) => {
-  res.render("application", { title: "Home" });
+  res.render("signIn", { title: "Sign In" });
 };
 
 exports.signIn = (req, res) => {
@@ -31,7 +31,7 @@ exports.login = async (req, res) => {
 
     if (passwordMatch) {
       // Passwords match, user is authenticated
-      return res.render("application", { title: "Home" });
+      return res.render("application");
     } else {
       // Passwords do not match
       return res.status(401).json({ message: "Invalid email or password" });
@@ -87,12 +87,7 @@ exports.createUser = async (req, res) => {
     // Gets create user post information from the request bosy
     // and then creates that user in the database
     const newUser = await User.create(req.body);
-    res.status(201).json({
-      status: "success",
-      data: {
-        user: newUser,
-      },
-    });
+    res.render("signIn", { title: "Sign In" });
   } catch (err) {
     res.status(400).json({
       status: "fail",
