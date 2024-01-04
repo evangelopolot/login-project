@@ -2,7 +2,8 @@ const path = require("path");
 const User = require("../../models/userModel");
 
 exports.homepage = (req, res) => {
-  res.render("signIn", { title: "Sign In" });
+  res.render("signIn", { title: "Sign In" }); 
+  
 };
 
 exports.signIn = (req, res) => {
