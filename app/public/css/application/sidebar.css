@@ -291,7 +291,8 @@ body {
     /* Very clenn very clean */
     transition: all 0.5s ease;
     overflow: auto;
-    background-image: url(assets/hhh.gif);
+    /* background-image: url(assets/hhh.gif); */
+    background-color: #c8c6c6;
 }
 
 .home-content .text {
