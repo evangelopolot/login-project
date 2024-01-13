@@ -2,8 +2,7 @@ const path = require("path");
 const User = require("../../models/userModel");
 
 exports.homepage = (req, res) => {
-  res.render("signIn", { title: "Sign In" }); 
-  
+  res.render("signIn", { title: "Sign In" });
 };
 
 exports.signIn = (req, res) => {
@@ -13,7 +12,6 @@ exports.signIn = (req, res) => {
 exports.signUp = (req, res) => {
   res.render("signUp", { title: "Sign Up" });
 };
-
 
 exports.login = async (req, res) => {
   const { email, password } = req.body;
@@ -67,7 +65,60 @@ exports.findUser = async (req, res) => {
 
 exports.getAllUsers = async (req, res) => {
   try {
-    const users = await User.find();
+    console.log(req.query);
+
+    // BUILD THE QUERY
+
+    // 1) Filltering
+    const queryObj = { ...req.query };
+    const excludedFields = ["sort", "limit", "fields"];
+    excludedFields.forEach((el) => delete queryObj[el]);
+
+    // 2) Advanced Filltering - Refactoring the limiters by adding the $ sign
+    // so that it can be handled by mongo - {gte} to {$gte}
+    let queryStr = JSON.stringify(queryObj);
+    queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/, (match) => `$${match}`);
+    console.log("This is the replaced queryStr: ", JSON.parse(queryStr));
+
+    const query = await User.find(JSON.parse(queryStr));
+
+    //SORTING
+    // if (req.body.sort) {
+    //   const sortBy = req.query.sort.split(",").join(" ");
+    //   query = query.sort(sortBy);
+    // } else {
+    //   query = query.sort("-createdAt");
+    // }
+
+    // FILTERING
+
+    // EXECUTE THE QUERY
+    const users = await query;
+
+    // SEND THE RESPONSE
+    res.status(201).json({
+      status: "success",
+      "number of users": users.length,
+      data: {
+        users,
+      },
+    });
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+
+exports.getUsersWhere = async (req, res) => {
+  console.log(req.query);
+
+  const queryObj = { ...req.query };
+  const excludedFields = ["page", "sort", "limit", "fields"];
+  excludedFields.forEach((el) => delete queryObj[el]);
+
+  console.log(req.query, queryObj);
+
+  try {
+    const users = await User.find(queryObj);
     res.status(201).json({
       status: "success",
       "number of users": users.length,

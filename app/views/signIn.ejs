@@ -6,34 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Project | <%= title%>
     </title>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/css/general.css">
     <link rel="stylesheet" href="/css/login/style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet'>
 </head>
 
 <body>
+    <div class="form-container">
+        <div class="form">
+            <div class="form-image-container">
+                <img class="form-img" src="/assets/form-image.jpg" alt="">
+            </div>
 
-    <div class="container">
-
-        <div class="form-container">
-            <div class="form">
-                <h1 class="form-title">Login</h1>
-
-                <form class="form-field-container" action="/api/v1/users/login" method="post">
-                    <input class="input-field" placeholder="Email Address" type="email" name="email" id="" required />
-                    <div class="password"> <p class="password-label">Password</p> <a href="/api" class="password-label">Forgot password</a></div>
-                    <input class="input-field" placeholder="Password" type="password" name="password" id="" required />
-                    <button class="btn-submit" type="submit">Submit</button>
-                </form>
-
+            <form class="form-field-container" action="/api/v1/users/login" method="post">
+                <div class="signIn-logo">
+                    <svg class="l" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24"
+                        style="fill: rgba(0, 0, 0, 1);">
+                        <path
+                            d="M2.76 20.2a2.73 2.73 0 0 0 2.15.85 8.86 8.86 0 0 0 3.37-.86 9 9 0 0 0 12.27-10.9c1.31-2.23 1.75-4.26.67-5.48a2.94 2.94 0 0 0-2.57-1A5 5 0 0 0 16.1 4 9 9 0 0 0 3.58 15.14c-1.06 1.21-2.05 3.68-.82 5.06zm1.5-1.32c-.22-.25 0-1.07.37-1.76a9.26 9.26 0 0 0 1.57 1.74c-1.03.3-1.71.28-1.94.02zm14.51-5.17A7 7 0 0 1 15.58 18 7.12 7.12 0 0 1 12 19a6.44 6.44 0 0 1-1.24-.13 30.73 30.73 0 0 0 4.42-3.29 31.5 31.5 0 0 0 3.8-4 6.88 6.88 0 0 1-.21 2.13zm.09-8.89a.94.94 0 0 1 .87.32c.23.26.16.94-.26 1.93a9.2 9.2 0 0 0-1.61-1.86 2.48 2.48 0 0 1 1-.39zM5.22 10.31A6.94 6.94 0 0 1 8.41 6 7 7 0 0 1 12 5a6.9 6.9 0 0 1 6 3.41 5.19 5.19 0 0 1 .35.66 27.43 27.43 0 0 1-4.49 5A27.35 27.35 0 0 1 8.35 18a7 7 0 0 1-3.13-7.65z">
+                        </path>
+                    </svg>
+                    <h1 class="signIn-header">
+                        Welcome back!
+                    </h1>
+                    <p class="signIn-sub-text">Welcome back! Please enter your details.</p>
+                </div>
+                <div class="password">
+                    <p class="password-label">Email</p>
+                </div>
+                <input class="input-field" placeholder="Email Address" type="email" name="email" id="" required />
+                <div class="password">
+                    <p class="password-label">Password</p> <a href="/api" class="password-label">Forgot password</a>
+                </div>
+                <input class="input-field" placeholder="Password" type="password" name="password" id="" required />
+                <button class="btn-submit" type="submit">Sign In</button>
                 <div class="bottom-form-text">
-                    Not a Member?
+                    Don't have an account?
                     <span> <a href="/api/v1/users/signUp">Click Here</a></span>
                 </div>
+            </form>
 
-            </div>
         </div>
-
     </div>
+
+
 </body>
 
 </html>

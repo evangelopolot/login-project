@@ -1,45 +1,52 @@
-.container {
-    height: 100vh;
-    background-color: #393E41;
-}
-
-/* Login Form */
-
-.title {
-    font-size: 24px;
-}
+/* ************************* */
+/* Sign In & Sign Up Style Code */
+/* ************************* */
 
 .form-container {
-    height: 100%;
+    height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #454746;
 }
 
 .form {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 1;
-    /* Allow the item to shrink */
-    border: 1px solid #ccc;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(228, 228, 228);
-    border-radius: 0.8rem;
+    background-color: #fff;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    /* More pronounced drop shadow */
+    border-radius: 5px;
 }
-
 
 .form-field-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    height: 700px;
+    width: 480px;
+    padding: 50px;
+}
+
+.form-image-container {
+    height: 700px;
     width: 600px;
-    margin: 40px;
+}
+
+.form-img {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.logo {
+    margin-bottom: 10px;
+}
+
+.signIn-logo {
+    margin-bottom: 20px;
 }
 
 .form-title {
@@ -48,18 +55,16 @@
     align-self: center;
 }
 
-.input-field-containers {
-    display: flex;
-    flex-direction: column;
-}
-
 .input-field {
     align-self: center;
-    height: 50px;
-    width: 400px;
+    height: 45px;
+    width: 300px;
     margin-bottom: 30px;
-    padding: 5px;
+    padding: 15px;
     font-size: 18px;
+    border-radius: 120px;
+    background-color: #d0d0d0;
+    border: none;
 }
 
 .btn-container {
@@ -72,80 +77,27 @@
 
 .btn-submit {
     align-self: center;
-    width: 300px;
-    height: 60px;
+    width: 280px;
+    height: 50px;
     background-color: rgb(50, 50, 50);
     cursor: pointer;
     color: white;
     font-size: 18px;
     text-align: center;
     text-decoration: none;
+    border-radius: 120px;
+    margin-bottom: 10px;
+}
+
+.password {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    width: 280px;
+    height: 25px;
 }
 
 .bottom-form-text {
     font-size: 18px;
-}
-
-.separator {
-    height: 3px;
-    width: 700px;
-    background-color: rgb(165, 165, 165);
-}
-
-nav {
-    max-width: 1500px;
-}
-
-/* Nav */
-ul {
-    list-style-type: none;
-    margin: 0;
-    margin-bottom: 10px;
-    padding: 0;
-    overflow: hidden;
-    border-radius: 5px;
-    background-color: #333;
-}
-
-li {
-    float: left;
-    border-right: 1px solid #bbb;
-}
-
-li:last-child {
-    border-right: none;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover:not(.active) {
-    background-color: #111;
-}
-
-.active {
-    background-color: #04AA6D;
-}
-
-/* Responsive styling using media queries */
-@media (max-width: 800px) {
-
-    .container,
-    .form-container,
-    .form {
-        max-width: 100%;
-        /* Allow the form to take up the full width on smaller screens */
-    }
-}
-
-.password{
-    display: flex;
-    justify-content: space-between;
-    width: 400px;
-    height: fit-content;
+    margin-top: 10px;
 }
