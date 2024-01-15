@@ -1,6 +1,7 @@
 const express = require("express");
 const loginController = require(`../controllers/loginController`);
 const authController = require(`../controllers/authController`);
+const userController = require(`./../controllers/userController`)
 const dotenv = require('dotenv');
 
 dotenv.config({ path: './config.env' });
@@ -13,11 +14,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const router = express.Router();
 
 router.post("/signup", authController.signup);
+router.post("/login", authController.login);
+router.get("/getAllUsers", userController.getAllUsers);
 
 
 router.route("/").get(loginController.homepage);
 router.route("/signIn").get(loginController.signIn);
-router.route("/getAllUsers").get(loginController.getAllUsers);
+router.route("/").get(loginController.getAllUsers);
 router.route("/login").post(loginController.login);
 router.route("/create-user").post(loginController.createUser);
 
