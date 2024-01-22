@@ -2,9 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const loginRoute = require("./routes/loginRoute");
 const path = require("path");
+const dotenv = require("dotenv");
 const morgan = require("morgan");
+dotenv.config({ path: "../../config.env" }); //this must be placed before app
 const app = express();
-
 app.set("view engine", "ejs"); // register view engine
 app.set("views", path.join(__dirname, "/views")); // tell view engine where to look
 
