@@ -1,4 +1,5 @@
 const AppError = require("../utils/appError");
+const catchAsync = require("./../utils/catchAsync");
 const User = require("./../../models/userModel");
 
 const filterObj = (obj, ...allowedfields) => {
@@ -47,3 +48,11 @@ exports.getAllUsers = async (req, res, next) => {
     console.log(error.message);
   }
 };
+
+exports.deleteMe = catchAsync( async (req, res, next) => {
+  await User.findByIdAndUpdate(req.user.id, { active: false });
+  res.status(204).json({
+    status: "success",
+    data: null
+  });
+})
