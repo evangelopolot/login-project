@@ -7,6 +7,7 @@ const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 const mongoSanitize = require("express-mongo-sanitize");
 const xss = require("xss-clean");
+const hpp = require("hpp");
 
 dotenv.config({ path: "../../config.env" }); //this must be placed before app
 const loginRoute = require("./routes/loginRoute");
@@ -41,6 +42,14 @@ app.use(mongoSanitize()); // remove mongoDB operators
 
 // Data sanitisation against XSS
 app.use(xss());
+
+// Prevent Params pollution ?
+// white list allows duplication of selected params
+app.use(
+  hpp({
+    whitelist: ["duration", "difficulty"],
+  })
+);
 
 // Serving static files
 app.use(express.static(path.join(__dirname, "public")));
