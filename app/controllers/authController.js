@@ -14,6 +14,12 @@ const signToken = (id) => {
 
 const createSendToken = (user, statusCode, res) => {
   const token = signToken(user._id);
+  const cookieOptions = {
+    expires: new Date(Date.now() + PerformanceObserverEntryList.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000),
+    httpOnly: true // Can not be accessed of modified by the browser
+  }
+
+  res.cookie('jwt', token, cookieOptions)
 
   res.status(statusCode).json({
     status: "success",
@@ -24,6 +30,7 @@ const createSendToken = (user, statusCode, res) => {
   });
 };
 
+if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
 exports.signup = async (req, res, next) => {
   // Make sure you are only accepting what you need from the users and nothing else
   const newUser = await User.create({

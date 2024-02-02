@@ -24,16 +24,25 @@ router.get(
   authController.restrictTo("admin"),
   userController.getAllUsers
 );
+
 router.patch(
   "/updateMyPassword",
   authController.protect,
   authController.updatePassword
 );
+
 router.patch(
   "/updateAccountDetails",
   authController.protect,
   userController.updateAccountdetails
 );
+
+router.patch(
+  "/deleteMe",
+  authController.protect,
+  userController.deleteMe
+);
+
 router.route("/").get(loginController.homepage);
 router.route("/signIn").get(loginController.signIn);
 router.route("/").get(loginController.getAllUsers);
