@@ -1,22 +1,55 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const loginRoute = require("./routes/loginRoute");
 const path = require("path");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
+const rateLimit = require("express-rate-limit");
+const helmet = require("helmet");
+const mongoSanitize = require("express-mongo-sanitize");
+const xss = require("xss-clean");
+
 dotenv.config({ path: "../../config.env" }); //this must be placed before app
+const loginRoute = require("./routes/loginRoute");
+
 const app = express();
 app.set("view engine", "ejs"); // register view engine
 app.set("views", path.join(__dirname, "/views")); // tell view engine where to look
 
-// Middleware
+// Global Middleware
+// Set Security HTTP Headers
+app.use(helmet());
+
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+}
+
+// Prevents denial of service and brute force attacks
+// Limits request form the same API
+const limiter = rateLimit({
+  max: 100,
+  windowMs: 60 * 60 * 1000,
+  message: "Too many requuests from this IP, please try again later",
+});
+
+app.use("/api", limiter);
+
+// Body Parser, reading data from the body into req.body
+app.use(express.json({ limit: "10Kb" }));
+
+// Data sanitisation against NoSQL query injection
+app.use(mongoSanitize()); // remove mongoDB operators
+
+// Data sanitisation against XSS
+app.use(xss());
+
+// Serving static files
+app.use(express.static(path.join(__dirname, "public")));
+
 app.use(morgan("dev"));
-app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Gives access to all the files in the publlic folder and not just the htmml being send.
 // Does the file matching.
-app.use(express.static(path.join(__dirname, "public")));
 
 //Routes
 app.use("/api/v1/users", loginRoute);
