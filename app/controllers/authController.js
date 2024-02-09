@@ -26,14 +26,15 @@ const createSendToken = (user, statusCode, res) => {
 
   // Remove the password from the output
   user.password = undefined;
+  res.render("application");
 
-  res.status(statusCode).json({
-    status: "success",
-    token,
-    data: {
-      user,
-    },
-  });
+  //   res.status(statusCode).json({
+  //     status: "success",
+  //     token,
+  //     data: {
+  //       user,
+  //     },
+  //   });
 };
 // Only in productions does the cookieOption become secure
 if (process.env.NODE_ENV === "production") cookieOptions.secure = true;

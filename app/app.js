@@ -13,10 +13,13 @@ dotenv.config({ path: "../../config.env" }); //this must be placed before app
 const loginRoute = require("./routes/loginRoute");
 
 const app = express();
-app.set("view engine", "ejs"); // register view engine
+
+app.set("view engine", "pug"); // register view engine
 app.set("views", path.join(__dirname, "/views")); // tell view engine where to look
 
 // Global Middleware
+// Serving static files
+app.use(express.static(path.join(__dirname, "public")));
 // Set Security HTTP Headers
 app.use(helmet());
 
@@ -51,14 +54,12 @@ app.use(
   })
 );
 
-// Serving static files
-app.use(express.static(path.join(__dirname, "public")));
-
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Gives access to all the files in the publlic folder and not just the htmml being send.
-// Does the file matching.
+app.use("/", (req, res) => {
+  res.status(200).render("base");
+});
 
 //Routes
 app.use("/api/v1/users", loginRoute);
