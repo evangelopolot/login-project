@@ -5,6 +5,7 @@ const User = require("./../../models/userModel");
 const Email = require("./../utils/email");
 const AppError = require("./../utils/appError");
 const catchAsyncError = require("./../utils/catchAsync");
+const { log } = require("console");
 
 const signToken = (id) => {
   return jwt.sign({ id: id }, `${process.env.JWT_SECRET}`, {
@@ -26,18 +27,21 @@ const createSendToken = (user, statusCode, res) => {
 
   // Remove the password from the output
   user.password = undefined;
-  res.render("application");
 
-  //   res.status(statusCode).json({
-  //     status: "success",
-  //     token,
-  //     data: {
-  //       user,
-  //     },
-  //   });
+  console.log(`User ${user.firstName} has logged in successfully`);
+
+  res.status(statusCode).json({
+    status: "success",
+    token,
+    data: {
+      user,
+    },
+  });
 };
+
 // Only in productions does the cookieOption become secure
 if (process.env.NODE_ENV === "production") cookieOptions.secure = true;
+
 exports.signup = async (req, res, next) => {
   // Make sure you are only accepting what you need from the users and nothing else
   const newUser = await User.create({
@@ -47,20 +51,21 @@ exports.signup = async (req, res, next) => {
     password: req.body.password,
     passwordConfirm: req.body.passwordConfirm,
   });
-  console.log("This is the new user, ", newUser);
+  console.log("New user created: ", newUser);
 
   createSendToken(newUser, 201, res);
 };
 
 exports.login = async (req, res, next) => {
   const { email, password } = req.body;
-  console.log(email, password);
+  console.log("hit login");
+  console.log("Email: ", email);
+  console.log("Password: ", password);
 
-  // Check if email and password exist
   if (!email || !password) {
     // Replace this with the Error class you've created
     // use return to end the journey if an error is encouted or otherwise REMBEMER
-    return next(new Error("Please provide email and password!", 404));
+    return next(new AppError("Please provide email and password!", 404));
   }
 
   // Check if the users exists & password matches
@@ -71,7 +76,6 @@ exports.login = async (req, res, next) => {
     return next(new Error("Incorrect email or password!", 401));
   }
 
-  const token = signToken(user._id);
   createSendToken(user, 200, res);
 };
 
@@ -84,6 +88,8 @@ exports.protect = async (req, res, next) => {
     req.headers.authorization.startsWith("Bearer")
   ) {
     token = req.headers.authorization.split(" ")[1];
+  } else if (req.cookies.jwt) {
+    token = req.cookies.jwt;
   }
   console.log(token);
 
@@ -92,12 +98,10 @@ exports.protect = async (req, res, next) => {
   }
 
   // 2) Verify the token
-
   const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
   console.log(decoded);
 
   // 3) Check if user still exists
-
   const freshUser = await User.findById(decoded.id);
 
   if (!freshUser) {
@@ -105,7 +109,6 @@ exports.protect = async (req, res, next) => {
   }
 
   // 4) Check if user changed password after the JWT token was issued
-
   if (freshUser.changedPasswordAfter(decoded.iat)) {
     return next(
       new Error("User recently changed password! Please login again", 401)
@@ -117,13 +120,41 @@ exports.protect = async (req, res, next) => {
   next();
 };
 
+// Only for rendered pages, no errors!
+exports.isLoggedIn = async (req, res, next) => {
+  const token = req.cookies.jwt;
+  if (token) {
+    // 2) Verify the token
+    const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+    console.log(decoded);
+
+    // 3) Check if user still exists
+    const currentUser = await User.findById(decoded.id);
+    if (!currentUser) {
+      return next();
+    }
+
+    // 4) Check if user changed password after the JWT token was issued
+    if (currentUser.changedPasswordAfter(decoded.iat)) {
+      return next();
+    }
+
+    // GRANT ACCESS TO PROTECTED ROUTE
+
+    // There is a logged in user and make it accessable to the templates
+    res.locals.user; // Passing data to the template
+    req.user = currentUser;
+  }
+
+  next();
+};
+
 exports.restrictTo = (...roles) => {
   // roles is restricted to only admin roles
   return (req, res, next) => {
     // req.user.role gives us the role of the user from the protected middleware
     console.log(req.user.role);
     if (!roles.includes(req.user.role)) {
-      console.log("hit");
       return next(
         new Error("You do not have permission to perform this action!", 403)
       );

@@ -1,103 +1,62 @@
-/* ************************* */
-/* Sign In & Sign Up Style Code */
-/* ************************* */
-
-.form-container {
-    height: 100vh;
-    width: 100%;
+body {
+    background-image: radial-gradient(circle, #111, #333, #222);
+    background-size: 10px 10px;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: #454746;
+    justify-content: center;
+    min-height: 100vh;
 }
 
-.form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.signup-container {
     background-color: #fff;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
-.form-field-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 700px;
-    width: 480px;
-    padding: 50px;
-}
-
-.form-image-container {
-    height: 700px;
-    width: 600px;
-}
-
-.form-img {
-    height: 100%;
-    width: 100%;
-    border-radius: 5px;
-}
-
-.logo {
-    margin-bottom: 10px;
-}
-
-.signIn-logo {
-    margin-bottom: 20px;
-}
-
-.form-title {
-    font-size: 42px;
-    margin: 40px;
-    align-self: center;
+h1 {
+    color: #333;
+    margin-bottom: 30px;
 }
 
 .input-field {
-    align-self: center;
-    height: 45px;
-    width: 300px;
-    margin-bottom: 30px;
-    padding: 15px;
-    font-size: 18px;
-    border-radius: 120px;
-    background-color: #d0d0d0;
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
     border: none;
-}
-
-.btn-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 300px;
-}
-
-.btn-submit {
-    align-self: center;
-    width: 280px;
-    height: 50px;
-    background-color: rgb(50, 50, 50);
+    padding: 12px 20px;
+    border-radius: 4px;
     cursor: pointer;
-    color: white;
-    font-size: 18px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 120px;
-    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
 }
 
-.password {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    width: 280px;
-    height: 25px;
+button[type="submit"]:hover {
+    background-color: #0056b3;
 }
 
-.bottom-form-text {
-    font-size: 18px;
-    margin-top: 10px;
+p {
+    margin-top: 20px;
+}
+
+a {
+    color: #007bff;
 }

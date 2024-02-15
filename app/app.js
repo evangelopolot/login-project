@@ -8,20 +8,33 @@ const helmet = require("helmet");
 const mongoSanitize = require("express-mongo-sanitize");
 const xss = require("xss-clean");
 const hpp = require("hpp");
+const cookieParser = require("cookie-parser");
 
 dotenv.config({ path: "../../config.env" }); //this must be placed before app
 const loginRoute = require("./routes/loginRoute");
+const viewRouter = require("./routes/viewRoutes");
 
 const app = express();
 
-app.set("view engine", "pug"); // register view engine
-app.set("views", path.join(__dirname, "/views")); // tell view engine where to look
+// this parses the Cookie header in the HTTP request and makes the cookies available in the req.cookies object.
+app.use(cookieParser());
 
+app.set("view engine", "pug"); // register view engine
+app.set("views", path.join(__dirname, "views")); // tell view engine where to look
 // Global Middleware
 // Serving static files
 app.use(express.static(path.join(__dirname, "public")));
 // Set Security HTTP Headers
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(), // Optional
+        "script-src": ["'self'", "https://unpkg.com"],
+      },
+    },
+  })
+);
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
@@ -57,16 +70,21 @@ app.use(
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use("/", (req, res) => {
-  res.status(200).render("base");
+// Test Middleware
+
+app.use((req, res, next) => {
+  req, (requestTime = new Date().toISOString());
+  console.log(req.cookies);
+  next();
 });
 
-//Routes
+// Mounting Routes
+app.use("/", viewRouter);
 app.use("/api/v1/users", loginRoute);
 
 // Handles the 404 page, middleware should be the last/bottom middleware
-app.use((req, res) => {
-  res.status(404).render("404", { title: "404" });
-});
+// app.use((req, res) => {
+//   res.status(404).render("404", { title: "404" });
+// });
 
 module.exports = app;

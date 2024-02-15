@@ -1,0 +1,10 @@
+header 
+    nav 
+        if user 
+            a Log output 
+            a   
+                img.nav-user-img(src=`/img/users/${user.photo}`, alt='User photo')
+                span= user.name
+        else 
+            a.nav(href="/login") Log in 
+            a.nav(href="#") Sign up  
